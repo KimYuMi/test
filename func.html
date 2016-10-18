@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>함수</title>
+<style>
+	*{padding:0;margin:0;font-size:12px;line-height:18px;color:#000;}
+	.no-m{margin:0 !important;}
+	.box{padding:10px;margin-bottom:200px;}
+	.txt{text-indent:-11px;padding-left:15px;margin-top:20px;}
+	.txt2{text-indent:-11px;padding-left:15px;margin-top:0;}
+	.ex{border-radius:8px;background:#eee;padding:12px 14px 10px;margin-top:7px;font-size:12px;}
+	.ex > span.type1{padding-left:19px;display:block;}
+	.ex > span.type2{padding-left:38px;display:block;}
+	.ex > span.type3{padding-left:57px;display:block;}
+	.point{color:#3f5fbf;padding-left:15px;display:inline !important;}
+	.point2{font-weight:bold;color:#7f0055;}
+	.point3{font-weight:bold;}
+	.point5{color:#3f5fbf;display:block;}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"> </script>
+<script type="text/javascript">
+function f1(y1) {
+     x1 = 1;
+    function f2(y2) {
+         x2 = 2;
+    }
+    f2();
+}
+f1();
+
+
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<p class="txt no-m"># 함수(function)란 하나의 로직을 재실행 할 수 있도록 하는 것으로 코드의 재사용성을 높여준다</p>
+		<div class="ex">
+			<span class="point2">function</span> ( [인자...[,인자]] ) {
+			<span class="type1">코드</span>
+			<span class="type1"><span class="point2">return</span> 반환값</span>
+			}
+		</div>
+
+		<p class="txt"># 함수선언식</p>
+		<div class="ex">
+			<span class="point2">function</span> gohome(){<br>
+			<span class="type1">실행코드</span>
+			}<br>
+		</div>
+
+		<p class="txt"># 기명 함수표현식</p>
+		<div class="ex">
+			<span class="point2">var</span> gohome = <span class="point2">function</span> gohome(){<br>
+			<span class="type1">실행코드</span>
+			}<br>
+		</div>
+
+		<p class="txt"># 기명 즉시실행함수식</p>
+		<div class="ex">
+			(<span class="point2">function</span> gohome(){<br>
+			<span class="type1">실행코드</span>
+			}());<br>
+		</div>
+
+		<p class="txt"># 익명 즉시실행함수 (Javascript 대가이신 더글라스 클락포트의 권장 표기법)</p>
+		<div class="ex">
+			(<span class="point2">function</span>(){<br>
+			<span class="type1">실행코드</span>
+			}());<br>
+		</div>
+
+		<p class="txt"># 다음의 함수의 이름은 numbering이고, 내용은 0부터 9까지 출력한다. </p>
+		<div class="ex">
+			<span class="point2">function</span> numbering(){<br>
+			<span class="type1">for (i = 0; i <= 10; i++) {</span>
+			<span class="type2">console.log(i);</span>
+			<span class="type1">}</span>
+			}<br>
+			numbering();
+		</div>
+
+		<p class="txt"># 인자(argument)는 함수로 유입되는 입력 값을 의미하는데,<br>어떤 값을 인자로 전달하느냐에 따라서 함수가 반환하는 값이나 메소드의 동작방법을 다르게 할 수 있다.</p>
+		<div class="ex">
+			<span class="point2">function</span> get_argument(arg){<br>
+			<span class="type1">return arg;</span>
+			}<br>
+			 
+			console.log(get_argument(1));<br>
+			console.log(get_argument(2));
+			<br><br>
+			<span class="point5">// 1</span>
+			<span class="point5">// 2</span>
+		</div>
+		<div style="padding-bottom:25px;">
+			<img src="http://eventimg.auction.co.kr/md/auction/08A2F277C9/function.jpg" style="width:300px;">
+		</div>
+
+		<p class="txt"># 여러개의 입력 값을 받고 싶다면 </p>
+		<div class="ex">
+			<span class="point2">function</span> get_argument(arg1, arg2){<br>
+			<span class="type1">return arg1 + arg2</span>
+			}<br>
+			 
+			console.log(get_argument(10, 20));<br>
+			console.log(get_argument(20, 30));
+			<br><br>
+			<span class="point5">// 30</span>
+			<span class="point5">// 50</span>
+		</div>
+
+		<p class="txt"># 자바스크립트 함수는 실행될 코드와 코드가 실행되는 유효범위의 조합에 해당한다.<br>이러한 코드와 유효범위의 조합은 컴퓨터 과학 분야에서 클로저(closure)로 알려져 있다. 모든 자바스크립트 함수는 클로저다</p>
+		<div class="ex">
+			getUniqueID = (<span class="point2">function</span>(){<br>
+			<span class="type1"><span class="point2">var</span> id = 1;</span>
+			<span class="type1"><span class="point2">return function</span>(){ </span>
+			<span class="type2"><span class="point2">return</span> id++; </span>
+			<span class="type1">}</span>
+			})();<br>
+			console.log("id: " + getUniqueID());<br>
+			console.log("id: " + getUniqueID());<br>
+			console.log("id: " + getUniqueID());<br>
+			console.log("id: " + getUniqueID());<br>
+			console.log("id: " + getUniqueID());
+			<br><br>
+			<span class="point5">// id: 1</span>
+			<span class="point5">// id: 2</span>
+			<span class="point5">// id: 3</span>
+			<span class="point5">// id: 4</span>
+			<span class="point5">// id: 5</span>
+		</div>
+		<div class="ex">
+			<span class="point2">function</span> sum(x){<br>
+			<span class="type1"><span class="point2">return function</span>(y){ </span>
+			<span class="type2"><span class="point2">return</span> x*y;</span>
+			<span class="type1">}</span>
+			}<br>
+			<span class="point2">var</span> aaa10 = sum(10);<br>
+			<span class="point2">var</span> bbb20 = sum(20);<br><br>
+			console.log(aaa10(5));<br>
+			console.log(bbb20(5)); 
+			<br><br>
+			<span class="point5">// 50</span>
+			<span class="point5">// 100</span>
+		</div>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- <p class="txt"># 자바스크립트 인터프리터가 함수를 호출할 경우 인터프리터는 호출 객체(활성화 객체로도 알려진)를 생성한다.</p> 		
+		<p class="txt2"># 모든 함수 매개변수 및 var 문으로 선언한 지역 변수는 호출 객체 안에 정의되고 호출 객체의 프로퍼티가 된다.</p> 
+		<div class="ex">
+			<span class="point2">function</span> f1(y1) {
+			<span class="type1"><span class="point2">var</span> x1 = 1;</span>
+			<span class="type1"><span class="point2">function</span> f2(y2) {</span>
+			<span class="type2"><span class="point2">var</span> x2 = 2;</span>
+			<span class="type1">}</span>
+			<span class="type1">f2();</span>
+			}<br>
+			f1();
+		</div>
+		<p class="txt2">- f1 호출 객체에는 y1과 x1 프로퍼티가 담기고, f2 호출 객체에는 y2와 x2 프로퍼티가 담긴다.</p>--> 
+
+
+</body>
+</html>
